@@ -164,7 +164,12 @@ export default function Home() {
               My expertise lies in crafting seamless UI/UX designs, ensuring intuitive user experiences across devices. I specialize in delivering visually engaging designs and dynamic animations that enhance user interaction, all while optimizing performance for both web and mobile applications.
               </p>
               <div className="button-group">
+              <a href="#Contact" onClick={(e) => {
+                e.preventDefault(); // Prevent default anchor link behavior
+                document.getElementById('Contact').scrollIntoView({ behavior: 'smooth' });
+              }}>
                 <button className="custom-button">MESSAGE ME</button>
+              </a>
                 <a className="no-underline" href={resumePDF} download>
                   <button className="custom-button">RESUME</button>
                 </a>
@@ -391,9 +396,7 @@ export default function Home() {
           }}
         />
         <div className="button-container">
-          <button className="btn">
-            <a href={projectLinks[centeredBox]}>Visit</a>
-          </button>
+        <button className="btn" onClick={() => window.location.href = projectLinks[centeredBox]}>Visit</button>
           <button className="btn" onClick={closeCenteredBox}>
             Close
           </button>
@@ -497,7 +500,7 @@ export default function Home() {
 {/* New Section 2*/}
 <section className="section5-style">
   <div className="column">
-    <p>© 2025 John Mark Romero - All rights reserved</p>
+    <p className='p5'>© 2025 John Mark Romero - All rights reserved</p>
   </div>
   <div className="column c-right5">
   <div className="image-container">

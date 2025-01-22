@@ -3,7 +3,7 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: 'Roboto';
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
   }
 
 
@@ -1118,18 +1118,18 @@ a {
 .submit-button4 {
   width: 80%; /* Adjusts to the container's width */
   height: 40px;
-  background-color: #CB511C;
+  background-color: black;
   color: white;
+  border: 2px solid #CB511C;
   font-size: 18px;
   font-weight: bold;
-  border: none;
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .submit-button4:hover {
-  background-color: #0056b3;
+  background-color: #CB511C;
 }
 
 
@@ -1223,18 +1223,18 @@ a {
   .submit-button4 {
     width: 100%; /* Make the submit button the same width as the form */
     height: 40px;
-    background-color: #CB511C;
+    background-color: black;
     color: white;
+    border: 2px solid #CB511C;
     font-size: 18px;
     font-weight: bold;
-    border: none;
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s;
   }
   
   .submit-button4:hover {
-    background-color: #0056b3;
+    background-color: #CB511C;
   }
 }
 
@@ -1267,7 +1267,7 @@ a {
   align-items: center; 
 }
 
-p {
+p5 {
   color: white;
   font-size: 12px;
   letter-spacing: 5px;
