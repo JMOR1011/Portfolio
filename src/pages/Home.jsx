@@ -49,6 +49,15 @@ import '../styles/styles.css';
 
 export default function Home() {
   const [activeLink, setActiveLink] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -121,7 +130,7 @@ export default function Home() {
 
 
   //CONTACT EMAIL SUBMIT
-  const onSubmit = async (event) => {
+  /*const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
@@ -142,8 +151,39 @@ export default function Home() {
     if (res.success) {
       console.log("Success", res);
     }
+  };*/
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+
+    formData.append("access_key", "86f04ea1-1bd2-459c-aff6-ae1ace93e3bd");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: json
+    }).then((res) => res.json());
+
+    if (res.success) {
+      setModalVisible(true);  // Show modal
+      setFormData({ name: '', email: '', subject: '', message: '' }); // Clear form
+    }
   };
 
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
   
 
 
@@ -422,7 +462,7 @@ export default function Home() {
     </h5>
     <h1 className="main-header4">Get In Touch</h1>
   </div>
-
+{/*
   <form className="contact-form4" onSubmit={onSubmit}>
     <label className="form-label4" htmlFor="name4">NAME</label>
     <input 
@@ -469,6 +509,73 @@ export default function Home() {
       Submit
     </button>
   </form>
+
+*/}
+
+<form className="contact-form4" onSubmit={onSubmit}>
+        <label className="form-label4" htmlFor="name4">NAME</label>
+        <input 
+          type="text" 
+          id="name4" 
+          className="form-field4" 
+          placeholder="Enter your Name" 
+          name='name'
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+
+        <label className="form-label4" htmlFor="email4">EMAIL</label>
+        <input 
+          type="email" 
+          id="email4" 
+          className="form-field4" 
+          placeholder="Username@gmail.com" 
+          name='email'
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+
+        <label className="form-label4" htmlFor="subject4">SUBJECT</label>
+        <input 
+          type="text" 
+          id="subject4" 
+          className="form-field4" 
+          placeholder="Company Name" 
+          name='subject'
+          value={formData.subject}
+          onChange={handleChange}
+          required
+        />
+
+        <label className="form-label4" htmlFor="message4">MESSAGE</label>
+        <textarea 
+          className="form-field4 message-panel4" 
+          placeholder="Type here..." 
+          name='message'
+          value={formData.message}
+          onChange={handleChange}
+          required
+        ></textarea>
+
+        <button 
+          type="submit" 
+          className="submit-button4"
+        >
+          Submit
+        </button>
+      </form>
+
+      {/* Modal */}
+      {modalVisible && (
+        <div className="modal4">
+          <div className="modal4-content">
+            <h2 className='modal4-text'>Email Sent!</h2>
+            <button onClick={() => setModalVisible(false)}>Close</button>
+          </div>
+        </div>
+      )}
 </div>
 
 
@@ -497,7 +604,7 @@ export default function Home() {
 
 
 
-{/* New Section 2*/}
+{/* New Section 5*/}
 <section className="section5-style">
   <div className="column">
     <p className='p5'>© 2025 John Mark Romero - All rights reserved</p>

@@ -896,7 +896,7 @@ a {
 @media (max-width: 600px) {
   .centered-panel {
     width: 400px; /* Set panel width to 300px */
-    height: 700px; /* Set panel height to 600px */
+    height: 500px; /* Set panel height to 600px */
     flex-direction: column; /* Stack the contents vertically */
     justify-content: center; /* Vertically center content */
     align-items: center; /* Horizontally center content */
@@ -906,7 +906,8 @@ a {
   .left-column{
     width: 100%; 
     height: auto;
-    text-align: center; 
+    text-align: center;
+    display: none;
   }
 
   .right-column {
@@ -1267,7 +1268,7 @@ a {
   align-items: center; 
 }
 
-p5 {
+.p5 {
   color: white;
   font-size: 12px;
   letter-spacing: 5px;
@@ -1306,4 +1307,61 @@ p5 {
     font-size: 8px;
     letter-spacing: 3px;
   }
+  
+}
+
+
+
+
+/* MODAL */
+.modal4 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal4-content {
+  background-color: black;
+  border: 2px solid #CB511C;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+.modal4-text{
+  color: white;
+}
+
+
+.modal4-p{
+  color: white;
+  font-size: 8px;
+  text-align: center;
+}
+
+
+.modal4-thanks{
+  color: white;
+  font-size: 10px;
+  text-align: center;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border: 2px solid #CB511C;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+button:hover {
+  background-color: #CB511C;
 }
